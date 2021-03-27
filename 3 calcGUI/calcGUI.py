@@ -1,5 +1,8 @@
 from tkinter import *
 from math import sqrt as sqr
+from math import sin as sin
+from math import cos as cos
+from math import tan as tan
 
 
 class Application(Frame):
@@ -14,7 +17,7 @@ class Application(Frame):
         :param master: root.Tk()
         """
         Frame.__init__(self, master)
-        self.entry = Entry(master, width=24, font=("Arial",25))
+        self.entry = Entry(master, width=28, font=("Arial",25))
         self.entry.grid(row=0, column=0, columnspan=6, sticky="w")
         self.entry.focus_set()
         self.entry.configure(state="disabled", disabledbackground="white", disabledforeground="black")
@@ -144,8 +147,8 @@ class Application(Frame):
         Creates the widgets to be used in the grid.
         :return: None
         """
-        self.eq_bttn = Button(self, text="=", width=20, height=3, bg="lightgrey", command=lambda: self.calculate())
-        self.eq_bttn.grid(row=4, column=4, columnspan=2)
+        self.eq_bttn = Button(self, text="=", width=30, height=3, bg="lightgrey", command=lambda: self.calculate())
+        self.eq_bttn.grid(row=4, column=4, columnspan=3)
 
         self.ac_bttn = Button(self, text='CE', width=9, height=3, command=lambda: self.clear_all())
         self.ac_bttn.grid(row=1, column=4)
@@ -186,7 +189,7 @@ class Application(Frame):
         self.six_bttn = Button(self, text="6", width=9, height=3, command=lambda: self.add_chr(6))
         self.six_bttn.grid(row=2, column=2)
 
-        self.one_bttn = Button(self, text="1", width=9, height=3, command=lambda: self.add_chr(1))
+        self.one_bttn = Button(self, text="BEN", width=9, height=3, command=lambda: self.add_chr('PERKINS'))
         self.one_bttn.grid(row=3, column=0)
 
         self.two_bttn = Button(self, text="2", width=9, height=3, command=lambda: self.add_chr(2))
@@ -212,6 +215,15 @@ class Application(Frame):
 
         self.sqr_bttn = Button(self, text="^", width=9, height=3, command=lambda: self.add_chr('^'))
         self.sqr_bttn.grid(row=3, column=5)
+
+        self.sin_bttn = Button(self, text="sin", width=9, height=3, command=lambda: self.add_chr('sin'))
+        self.sin_bttn.grid(row=1, column=6)
+
+        self.cos_bttn = Button(self, text="cos", width=9, height=3, command=lambda: self.add_chr('cos'))
+        self.cos_bttn.grid(row=2, column=6)
+
+        self.tan_bttn = Button(self, text="tan", width=9, height=3, command=lambda: self.add_chr('tan'))
+        self.tan_bttn.grid(row=3, column=6)
 
 root = Tk()
 root.geometry()
